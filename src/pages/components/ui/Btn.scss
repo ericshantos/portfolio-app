@@ -1,0 +1,53 @@
+@use './../../../styles/variables.scss' as vars;
+
+:root {
+    --bgColor: #fce38f;
+  }
+  
+.CommonBtn {
+    button {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 20px;
+      font-size: 1.1em;
+      font-weight: 600;
+      color: var(--bgColor);
+      border: 2px solid var(--bgColor);
+      border-radius: 50px;
+      cursor: pointer;
+      background-color: transparent;
+      transition: background-color .5s ease, color .5s ease;
+      width: auto;
+    
+      &:hover {
+        color: vars.$common-color;
+        background-color: var(--bgColor);
+      }
+    }
+}
+  
+.CloseBtn {
+    position: absolute;
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    right: 3em;
+    top: 3.7em;
+    border: none;
+    background: transparent;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s ease;
+  
+    svg {
+      color: #333;
+      transition: color 0.3s ease;
+      font-weight: 600;
+  
+      &:hover {
+        color: #ff0000;
+      }
+    }
+}

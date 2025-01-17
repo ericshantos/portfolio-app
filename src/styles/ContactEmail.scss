@@ -1,0 +1,130 @@
+@use './variables.scss' as vars;
+
+:root {
+    --bgColor: #fce38f;
+}
+  
+$active-checkbox: 2px solid vars.$common-color;
+  
+.ContactEmail {
+    position: absolute;;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba($color: black, $alpha: .8);
+    z-index: 1000;
+  
+    & .EmailContainer {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 90%;
+        width: 35%;
+        padding: 30px 25px;
+        border-radius: 10px;
+        overflow: hidden;
+        overflow-y: auto;
+        background-color: white;
+        gap: 35px;
+  
+        form {
+            position: inherit;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+            & .FormItem {
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+  
+              & label {
+                color: vars.$common-color;
+                font-weight: 500;
+              }
+  
+              & input, textarea {
+                padding: 1.1em;
+                font-size: 0.9em;
+                background-color: #d2d2d7;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                border-radius: 5px;
+                border: none;
+              }
+  
+              & textarea {
+                font-size: 0.9em;
+                height: 10em;
+              }
+            }
+  
+            .CheckboxItem {
+              display: inline-flex;
+              align-items: center;            
+              
+              input[type="checkbox"] {
+                display: none;
+              }
+              
+              label {
+                position: relative;
+                padding-left: 35px;
+                cursor: pointer;
+                font-size: 16px;
+                line-height: 20px;
+                color: #333;
+                
+                &::before {
+                  content: '';
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  width: 17px;
+                  height: 17px;
+                  border: 2px solid #ADD8E6;
+                  border-radius: 4px;
+                  background-color: white;
+                  transition: background-color 0.2s, border-color 0.2s;
+                }
+                
+                &::after {
+                  content: '';
+                  position: absolute;
+                  left: 5px;
+                  top: 5px;
+                  width: 10px;
+                  height: 5px;
+                  border-left: $active-checkbox;
+                  border-bottom: $active-checkbox;
+                  transform: rotate(-45deg);
+                  opacity: 0;
+                  transition: opacity 0.2s ease-in-out;
+                }
+              }
+  
+              input[type="checkbox"]:checked + label::before {
+                background-color: transparent;
+                border-color: #ADD8E6;
+              }
+                
+              input[type="checkbox"]:checked + label::after {
+                opacity: 1;
+              }
+            }
+  
+            input[type="checkbox"]:checked + label::before {
+              background-color: var(--bgColor);
+              border-color: var(--bgColor);
+            }
+  
+            input[type="checkbox"]:checked + label::after {
+              opacity: 1;
+            }
+        }
+    }
+}

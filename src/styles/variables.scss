@@ -1,0 +1,13 @@
+// Variables
+$common-color: #30344c;
+$color-yellow: #fce38f;
+$color-red: #fc8d8d;
+$color-green: #8efcb5;
+
+@mixin MobileItem {
+    position: relative;
+    display: flex;
+    flex: 0 0 100vh;
+    width: 100%;
+    overflow: hidden;
+}

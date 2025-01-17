@@ -1,0 +1,12 @@
+.Content {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 100vh;
+    width: 100vw;
+}
+
+@media screen and (min-width:320px) and (max-width: 480px) {
+    .Content {
+        flex-direction: column;
+    }
+}

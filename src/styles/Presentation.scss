@@ -1,0 +1,135 @@
+@use './variables.scss' as vars;
+
+// variables
+$after-width: calc(100% + 10px);
+$animation-delay: 1.5s;
+
+.Presentation {
+    position: fixed;
+    display: flex;
+    left: 0;
+    height: 100%;
+    padding: 0 50px;
+    justify-content: center;
+    flex-direction: column;
+    background-color: vars.$common-color;
+    transition: width 1s ease 1s;
+    gap: 3.5em;
+    z-index: 100;
+
+    > * {
+        transition: opacity 1.5s ease-in-out 1s;
+    }
+
+    article {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        transform: translateY(20);
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-size: 3em;
+        }
+
+        h3 {
+            margin-left: 1.5em;
+            font-size: 2.2em;
+        }
+
+        & .animation-text {
+
+            h3 {
+                position: relative;
+
+                &::before {
+                    content: "";
+                    animation: words 20s infinite;
+                    animation-delay: $animation-delay;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    height: 100%;
+                    border-left: 3px solid;
+                    right: -5px;
+                    animation: cursor .8s infinite, typing 20s steps(16) infinite;
+                    animation-delay: $animation-delay;
+                    width: $after-width;
+                    background-color: vars.$common-color;
+                }
+            }
+        }
+    }
+
+    .ConteinerBtn {
+        position: relative;
+        display: flex;
+        transform: translateY(30%);
+        gap: 10px;
+    }
+
+    footer {
+        position: absolute;
+        color: #c6c7d5;
+        bottom: 4em;
+        font-size: 0.9em;
+        font-weight: 500;
+
+        a {
+            color: white;
+        }
+    }
+}
+
+@keyframes cursor {
+    0% {
+        border-left: 3px solid vars.$common-color;
+    }
+}
+
+@keyframes words {
+    0%, 20% {
+        content: 'Ciências da Computação';
+    }
+    21%, 40% {
+        content: 'Desenvolvedor Full Stack';
+    }
+    41%, 60% {
+        content: 'AI e Machine Learning';
+    }
+    61%, 80% {
+        content: 'Ciência de dados'
+    }
+    81%, 100% {
+        content: 'Facilitador de apredizagem';
+    }
+}
+
+@keyframes typing {
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95% {
+        width: 0;
+    }
+    5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85% {
+        width: $after-width;
+    } 
+}
+
+@media (max-width: 768px) {
+    .Presentation {
+        @include vars.MobileItem;
+
+        article {
+            h3 {
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
