@@ -1,0 +1,145 @@
+@use './variables.scss' as vars;
+
+// variables
+$icon-size: 4em;
+$size-BtnColor: 20px;
+
+header {
+    position: fixed;
+    display: flex;
+    top: 2em;
+    left: 1em;
+    padding: 1.8em 1.2em;
+    background-color: transparent;
+    transition: opacity 1s ease-in-out 1s;
+    z-index: 900;
+
+    & .BurguerCatalog {
+        position: relative;
+        display: flex;
+        border-radius: 50%;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        width: $icon-size;
+        height: $icon-size;
+        cursor: pointer;
+        z-index: 10000;
+        transition: background-color .5s ease-in-out;
+
+        img {
+            max-width: 100%;
+            height: 50px;
+            width: auto;
+            transition: opacity 1s ease-in-out 1s;
+        }
+    }
+
+    input[type="checkbox"] {
+        visibility: hidden;
+    }
+
+    & .CatalogContent {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: white;
+        border-radius: 0.6em;
+        padding: 0 0  0 40px;
+        pointer-events: none;
+        box-sizing: border-box;
+        top: 0;
+        left: 0;
+        height: 80vh;
+        width: 60vh;
+        clip-path: circle(0% at 16% 12%);
+        transition: clip-path 0.7s ease-in-out;
+
+        h1, h2 {
+            color: #30344c;
+        }
+
+        & .AbaList {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.7em;
+            opacity: 0;
+            margin-top: 2em;
+            transform: translateX(50%);
+            transition: transform .5s ease-in, opacity 1s ease;
+        }
+
+        .Title {
+            position: absolute;
+            top: 2.8em;
+            right: 3.8em;
+
+            h1 {
+                font-size: 1.4em;
+            }
+        }
+    }
+
+    .toggle:checked + .BurguerCatalog + .CatalogContent {
+        pointer-events: auto;
+        clip-path: circle(150% at 15% 14%);
+    }
+    
+    .toggle:checked + .BurguerCatalog + .CatalogContent .ConteinerColor {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .toggle:checked + .BurguerCatalog + .CatalogContent .AbaList {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.ConteinerColor {
+    position: absolute;
+    display: inline-flex;
+    bottom: 15px;
+    transform: translateY(40px);
+    opacity: 0;
+    gap: 5px;
+    transition: transform .8s ease, opacity .3s ease;
+
+    & .ColorBtn {
+        cursor: pointer;
+        height: $size-BtnColor;
+        width: $size-BtnColor;
+        border-radius: 50%;
+    }
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+    & a {
+        text-decoration: none;
+
+        & h2 {
+            font-size: 1.2em;
+            font-family: "Outfit", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 450;
+            font-style: normal;
+            color: vars.$common-color;
+        }
+
+        & p {
+            color: gray;
+            font-size: .9em;
+            font-family: "Poppins", sans-serif;
+            font-weight: 350;
+            font-style: normal;
+            margin-right: 1.8em;
+        }
+    }
+}
