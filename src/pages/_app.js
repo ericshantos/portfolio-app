@@ -5,7 +5,7 @@ import '@/styles/ContactEmail.scss';
 import '@/styles/Header.scss';
 import '@/styles/Main.scss';
 import '@/styles/Presentation.scss';
-import '@/styles/UtilItem.scss';
+import '@/styles/UiItem.scss';
 
 export default function App({ Component, pageProps }) {
   return (

@@ -1,4 +1,11 @@
 import emailjs from 'emailjs-com';
+import 'izitoast/dist/css/iziToast.min.css';
+
+// Carregando iziToast apenas no cliente
+let iziToast;
+if (typeof window !== 'undefined') {
+  iziToast = require('izitoast');
+}
 
 const handleSubmit = (e, formData, setFormData) => {
   e.preventDefault();
@@ -6,7 +13,13 @@ const handleSubmit = (e, formData, setFormData) => {
   const { from_name, from_email, message, checkbox } = formData;
 
   if (!from_name || !from_email || !message || !checkbox) {
-    alert('Preencha todos os campos necessários');
+    if (iziToast) {
+      iziToast.error({
+        title: 'Erro',
+        message: 'Preencha todos os campos necessários.',
+        position: 'topRight',
+      });
+    }
     return;
   }
 
@@ -15,16 +28,26 @@ const handleSubmit = (e, formData, setFormData) => {
   const userID = process.env.NEXT_PUBLIC_USER_ID;
 
   if (!serviceID || !templateID || !userID) {
-    throw new Error("Variáveis de ambiente não estão definidas corretamente.");
+    if (iziToast) {
+      iziToast.error({
+        title: 'Erro',
+        message: 'Configuração do serviço de e-mail está incompleta.',
+        position: 'topRight',
+      });
+    }
+    throw new Error('Variáveis de ambiente não estão definidas corretamente.');
   }
-  
-  console.log(serviceID, templateID, userID);
 
   emailjs
     .send(serviceID, templateID, formData, userID)
     .then((response) => {
-      console.log('E-mail enviado com sucesso!', response.status, response.text);
-      alert('Mensagem enviada com sucesso!');
+      if (iziToast) {
+        iziToast.success({
+          title: 'Sucesso',
+          message: 'Mensagem enviada com sucesso!',
+          position: 'topRight',
+        });
+      }
 
       setFormData({
         from_name: '',
@@ -34,8 +57,14 @@ const handleSubmit = (e, formData, setFormData) => {
       });
     })
     .catch((error) => {
+      if (iziToast) {
+        iziToast.error({
+          title: 'Erro',
+          message: 'Houve um problema ao enviar sua mensagem. Tente novamente.',
+          position: 'topRight',
+        });
+      }
       console.error('Erro ao enviar o e-mail:', error);
-      alert('Houve um problema ao enviar sua mensagem.');
     });
 };
 
