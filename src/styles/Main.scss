@@ -276,6 +276,8 @@ main {
 
 @media screen and (min-width:320px) and (max-width: 480px) {
 
+    $common-size: 7em;
+
     .AboutMe {
         padding: 50px 40px 0 30px;
         gap: 70px;
@@ -304,6 +306,17 @@ main {
                 }
             }
         }
+    }
+
+    .Skills {
+        & .SkillConteiner {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .SkillItem {
+        width: $common-size;
+        height: $common-size;
     }
 
     .Projects {

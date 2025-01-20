@@ -1,33 +1,35 @@
-import { SkillItem } from '.';
+import { SkillItem, useAppContext } from '.';
 
 const SkillConteiner = () => {
+
+    const { isMobile } = useAppContext();
     
     const skillItem = [
-        { skill: 'python', content: 'Linguagem de programação' },
-        { skill: 'javascript', content: 'Linguagem de programação' },
-        { skill: 'react', content: 'Front-end' },
-        { skill: 'html', content: 'Front-end' },
-        { skill: 'css', content: 'Front-end' },
-        { skill: 'flask', content: 'Back-end' },
-        { skill: 'express', content: 'Back-end' },
-        { skill: 'nodejs', content: 'Ecossistema JS' },
-        { skill: 'linux', content: 'Sistema Operacional' },
-        { skill: 'postman', content: 'Teste de API' },
-        { skill: 'docker', content: 'DevOps' },
-        { skill: 'vscode', content: 'IDE' },
-        { skill: 'git', content: 'Controle de versão' },
-        { skill: 'github', content: 'Controle de versão' },
-        { skill: 'raspberrypi', content: 'IoT' },
-        { skill: 'sklearn', content: 'Machine Learning' },
-        { skill: 'tensorflow', content: 'Machine Learning' },
-        { skill: 'sass', content: 'Front-end' },
-        { skill: 'markdown', content: 'Documentação de software' },
-        { skill: 'mysql', content: 'Banco de dados' },
-        { skill: 'aws', content: 'Computação em nuvem' },
-        { skill: 'next', content: 'Back-end' },
-        { skill: 'opencv', content: 'Visão computacional' },
-        { skill: 'pytorch', content: 'Machine learning' },
-        { skill:'arduino', content: 'IoT' }
+        { skill: 'python', content: 'Linguagem de programação', mobile: true },
+        { skill: 'javascript', content: 'Linguagem de programação', mobile: true },
+        { skill: 'react', content: 'Front-end', mobile: true },
+        { skill: 'html', content: 'Front-end', mobile: true },
+        { skill: 'css', content: 'Front-end', mobile: false },
+        { skill: 'flask', content: 'Back-end', mobile: true },
+        { skill: 'express', content: 'Back-end', mobile: true },
+        { skill: 'nodejs', content: 'Ecossistema JS', mobile: true },
+        { skill: 'linux', content: 'Sistema Operacional', mobile: true },
+        { skill: 'postman', content: 'Teste de API', mobile: false },
+        { skill: 'docker', content: 'DevOps', mobile: false },
+        { skill: 'vscode', content: 'IDE', mobile: true },
+        { skill: 'git', content: 'Controle de versão', mobile: true },
+        { skill: 'github', content: 'Controle de versão', mobile: false },
+        { skill: 'raspberrypi', content: 'IoT', mobile: false },
+        { skill: 'sklearn', content: 'Machine Learning', mobile: true },
+        { skill: 'tensorflow', content: 'Machine Learning', mobile: false },
+        { skill: 'sass', content: 'Front-end', mobile: true },
+        { skill: 'markdown', content: 'Documentação de software', mobile: true },
+        { skill: 'mysql', content: 'Banco de dados', mobile: true },
+        { skill: 'aws', content: 'Computação em nuvem', mobile: true },
+        { skill: 'next', content: 'Back-end', mobile: true },
+        { skill: 'opencv', content: 'Visão computacional', mobile: true },
+        { skill: 'pytorch', content: 'Machine learning', mobile: true },
+        { skill:'arduino', content: 'IoT', mobile: false }
     ];
 
     const validSkillItems = skillItem.filter(item => item.content && item.skill);
@@ -36,7 +38,7 @@ const SkillConteiner = () => {
         <section className='Skills MainItem' id='Skills'>
             <div className='SkillConteiner'>
                 {validSkillItems.map((item) => (
-                    <SkillItem key={item.skill} item={item} />
+                    isMobile && !item.mobile ? null : <SkillItem key={item.skill} item={item} />
                 ))}
             </div>
         </section>
