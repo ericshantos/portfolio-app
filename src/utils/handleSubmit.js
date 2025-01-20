@@ -1,7 +1,6 @@
 import emailjs from 'emailjs-com';
 import 'izitoast/dist/css/iziToast.min.css';
 
-// Carregando iziToast apenas no cliente
 let iziToast;
 if (typeof window !== 'undefined') {
   iziToast = require('izitoast');
