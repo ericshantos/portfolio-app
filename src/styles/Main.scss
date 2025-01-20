@@ -1,7 +1,7 @@
 @use 'variables.scss' as vars; 
 
 // variables
-$common-size: 7.6em;
+$common-size: 7.5em;
 $font-size-icon: 3em;
 $size-icon: calc($font-size-icon * 1.5);
 
@@ -136,6 +136,7 @@ main {
         grid-template-rows: auto;
         place-items: center;
         column-gap: 7px;
+        row-gap: 2px;
     }
 }
 
