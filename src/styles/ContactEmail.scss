@@ -135,7 +135,7 @@ $active-checkbox: 2px solid vars.$common-color;
       width: 90%;
 
       .ContactIcon {
-        transform: scale(.9);
+        transform: scale(.9) translateX(-5%);
         gap: 20px;
       }
       
