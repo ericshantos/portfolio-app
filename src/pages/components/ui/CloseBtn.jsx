@@ -1,8 +1,7 @@
 'use client';
 
-import './Btn.scss';
 import { AiOutlineClose } from "react-icons/ai";
-import { useAppContext } from '.';
+import useAppContext from "@/StateContext";
 
 const CloseBtn = () => {
   const { toggleVisibility } = useAppContext();

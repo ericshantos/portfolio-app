@@ -1,10 +1,14 @@
-const ContactIcon = ({ icon, context, link , onclick}) => {
-    
+const ContactIcon = ({ Icon, context, link, id, onClick = null }) => {
     return (
-        <div className='ContactIcon'>
-            <div className='BackgroundIcon' id={icon} onClick={onclick}>
-                <a href={link} target='_blank'>
-                    <ion-icon name={icon}></ion-icon>
+        <div className="ContactIcon">
+            <div className="BackgroundIcon" id={id}>
+                <a 
+                    href={link} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    onClick={onClick}
+                >
+                    {Icon && <Icon />}
                 </a>
             </div>
             <p>{context}</p>

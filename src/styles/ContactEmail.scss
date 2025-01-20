@@ -128,3 +128,24 @@ $active-checkbox: 2px solid vars.$common-color;
         }
     }
 }
+
+@media screen and (min-width:320px) and (max-width: 480px) {
+  .ContactEmail {
+    & .EmailContainer {
+      width: 90%;
+
+      .ContactIcon {
+        transform: scale(.9) translateX(-10%);
+        gap: 20px;
+      }
+      
+      form {
+        .CheckboxItem {
+          label {
+            font-size: .74rem;
+          }
+        }
+      }
+    }
+  }
+}

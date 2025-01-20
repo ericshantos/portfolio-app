@@ -1,5 +1,4 @@
 import { useAppContext, Photo, AboutMe, Skills, Projects, ContactMe } from '.';
-import '@/styles/Main.scss';
 
 const Main = () => {
 

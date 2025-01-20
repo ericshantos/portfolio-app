@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import handleScroll from "./utils/handleScroll";
 import { useMediaQuery } from "react-responsive";
 
 const AppContext = createContext();
@@ -22,6 +21,20 @@ export const AppProvider = ({ children }) => {
     const changeOpacity = () => {
         setOpacity('1');
     };
+
+    const [width, setWidth] = useState("100%");
+
+    const changeWidth = (newWidth) => {
+        setWidth(newWidth);
+    }
+
+    const [isChecked, setIsChecked] = useState(false);
+
+    const handleCheckboxChange = () => {
+        setIsChecked(prev => !prev);
+    };    
+
+    const [key, setKey] = useState(0);
     
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
@@ -33,7 +46,6 @@ export const AppProvider = ({ children }) => {
 
     useEffect(() => {
         changeOpacity();
-        handleScroll('Photo');
     }, []);
 
     return (
@@ -46,7 +58,13 @@ export const AppProvider = ({ children }) => {
             changeOpacity, 
             isMobile,
             size, 
-            setSize
+            setSize,
+            width,
+            changeWidth,
+            key, 
+            setKey,
+            isChecked,
+            handleCheckboxChange
         }}>
             {children}
         </AppContext.Provider>

@@ -1,5 +1,5 @@
-export { default as useAppContext } from '@/pages/components/StateContext';
-export { default as handleScroll } from '@/pages/components/utils/handleScroll';
+export { default as useAppContext } from '@/StateContext';
+export { default as handleScroll } from '@/utils/handleScroll';
 export { default as Photo } from './Photo';
 export { default as AboutMe } from './AboutMe';
 export { default as Skills } from './Skills';

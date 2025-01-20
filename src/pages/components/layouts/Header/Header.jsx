@@ -1,23 +1,31 @@
 'use client';
 
 import { CatalogItem, ConteinerColor, BurguerIcon, useAppContext } from '.';
-import '@/styles/Header.scss';
 import Image from 'next/image';
 
 const Header = () => {
-    const { bgColor, opacity } = useAppContext();
+    const { bgColor, opacity, handleCheckboxChange, isChecked } = useAppContext();
 
     return (
         <>
             <header style={{ opacity: opacity }}>
-                <input type="checkbox" id="toggle" className="toggle" />
+                <input 
+                    type="checkbox" 
+                    id="toggle" 
+                    className="toggle" 
+                    onChange={handleCheckboxChange}
+                    checked={isChecked}
+                />
                 <label htmlFor="toggle" className="BurguerCatalog" style={{ backgroundColor: bgColor }}>
                     <Image
                         src={BurguerIcon}
                         alt="ícone do catálogo hamburguer"
                     />
                 </label>
-                <div className="CatalogContent">
+                <nav 
+                    className="CatalogContent" 
+                    style={{ clipPath: isChecked ? 'circle(150% at 16% 12%)' : 'circle(0% at 16% 12%)' }}
+                >
                     <article className="Title">
                         <h1 className="font">Menu hamburguer</h1>
                     </article>
@@ -44,7 +52,7 @@ const Header = () => {
                         />
                     </ul>
                     <ConteinerColor />
-                </div>
+                </nav>
             </header>
         </>
     );

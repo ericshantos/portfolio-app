@@ -1,6 +1,7 @@
 import { SkillItem } from '.';
 
 const SkillConteiner = () => {
+    
     const skillItem = [
         { skill: 'python', content: 'Linguagem de programação' },
         { skill: 'javascript', content: 'Linguagem de programação' },
@@ -29,10 +30,12 @@ const SkillConteiner = () => {
         { skill:'arduino', content: 'IoT' }
     ];
 
+    const validSkillItems = skillItem.filter(item => item.content && item.skill);
+
     return (
         <section className='Skills MainItem' id='Skills'>
             <div className='SkillConteiner'>
-                {skillItem.map((item) => (
+                {validSkillItems.map((item) => (
                     <SkillItem key={item.skill} item={item} />
                 ))}
             </div>

@@ -1,7 +1,6 @@
 'use client';
 
 import { useAppContext, CommonBtn, handleScroll } from ".";
-import '@/styles/Presentation.scss';
 
 const Presentation = () => {
 
@@ -18,11 +17,11 @@ const Presentation = () => {
                 <h2>&lt;/Santos&gt;</h2>
             </article>
             <span className='ConteinerBtn' style={{ opacity: opacity }}>
-                <CommonBtn
-                    content='Vamos conversar'
-                    type='button'
-                    onclick={() => handleScroll('ContactMe')}
-                />
+            <CommonBtn
+                content="Vamos conversar"
+                type="button"
+                onclick={() => handleScroll('ContactMe')}
+            />
             </span>
             <footer style={{opacity: opacity }}>
                 <p>Role a tela e descobra mais sobre mim!</p>

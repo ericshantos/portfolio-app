@@ -1,3 +1,3 @@
-export { default as useAppContext } from '@/pages/components/StateContext';
+export { default as useAppContext } from '@/StateContext';
 
 export { default } from './Photo';

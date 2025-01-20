@@ -2,7 +2,7 @@
 
 // variables
 $after-width: calc(100% + 10px);
-$animation-delay: 1.5s;
+$animation-delay: 1s;
 
 .Presentation {
     position: fixed;
@@ -122,9 +122,10 @@ $animation-delay: 1.5s;
     } 
 }
 
-@media (max-width: 768px) {
+@media screen and (min-width:320px) and (max-width: 480px) {
     .Presentation {
         @include vars.MobileItem;
+        padding: 0 35px;
 
         article {
             h3 {

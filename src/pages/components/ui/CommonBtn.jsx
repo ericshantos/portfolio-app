@@ -1,7 +1,6 @@
 'use client';
 
-import './Btn.scss';
-import { useAppContext } from '.';
+import useAppContext from "@/StateContext";
 
 const CommonBtn = ({ content, type, onclick }) => {
     const { bgColor } = useAppContext();

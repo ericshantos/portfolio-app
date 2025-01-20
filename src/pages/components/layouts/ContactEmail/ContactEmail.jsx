@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
-import { handleSubmit, useAppContext, CommonBtn, CloseBtn, ContactIcon} from '.';
-import '@/styles/ContactEmail.scss';
+import { useState } from 'react';
+import { handleSubmit, useAppContext, CommonBtn, CloseBtn, ContactIcon } from '.';
+import { MdEmail } from 'react-icons/md';
 
 const ContactEmail = () => {
   const { isVisible } = useAppContext();
@@ -12,8 +12,10 @@ const ContactEmail = () => {
       <section className="EmailContainer">
         <CloseBtn />
         <ContactIcon 
-          icon="mail" 
-          context="Gostaria de dar um oi!" 
+          icon="mail"
+          Icon={MdEmail}
+          id="mail"
+          context="Gostaria de dar um oi!"
         />
         <Form />
       </section>
