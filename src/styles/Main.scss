@@ -135,7 +135,7 @@ main {
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: auto;
         place-items: center;
-        gap: 5px;
+        column-gap: 7px;
     }
 }
 
