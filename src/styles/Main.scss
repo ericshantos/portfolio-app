@@ -227,6 +227,7 @@ main {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        width: 100%;
         margin-top: 50px;
         gap: 20px;
     }
@@ -251,26 +252,36 @@ main {
         background-color: red;
     }
 
-    & .BackgroundIcon {
+    & a {
+        position: relative;
         display: flex;
-        padding: 10px;
-        height: $size-icon;
-        width: $size-icon;
-        justify-content: center;
+        flex-direction: row;
         align-items: center;
-        border-radius: 50%;
-        cursor: pointer;
-        background-color: black;
+        text-decoration: none;
+        width: 100%;
+        gap: 25px;
 
-        & svg {
-            color: white;
-            font-size: $font-size-icon;
+        & .BackgroundIcon {
+            display: flex;
+            padding: 10px;
+            height: $size-icon;
+            width: $size-icon;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: black;
+    
+            & svg {
+                color: white;
+                font-size: $font-size-icon;
+            }
         }
-    }
-
-    & p {
-        color: vars.$common-color;
-        font-weight: 500;
+    
+        & p {
+            color: vars.$common-color;
+            font-weight: 500;
+        }
     }
 }
 
