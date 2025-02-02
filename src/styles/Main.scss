@@ -281,6 +281,7 @@ main {
         & p {
             color: vars.$common-color;
             font-weight: 500;
+            cursor: pointer;
         }
     }
 }
