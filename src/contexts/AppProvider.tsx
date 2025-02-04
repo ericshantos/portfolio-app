@@ -1,80 +1,64 @@
-import { useReducer, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useMediaQuery } from "react-responsive";
-import { AppContext, AppContextType, AppState } from "./AppContext";
+import { AppContext } from "./AppContext";
 
 interface AppProviderProps {
     children: React.ReactNode;
 }
 
-type Action =
-    | { type: "TOGGLE_VISIBILITY" }
-    | { type: "CHANGE_COLOR"; payload: string }
-    | { type: "CHANGE_OPACITY" }
-    | { type: "SET_SIZE"; payload: string }
-    | { type: "CHANGE_WIDTH"; payload: string }
-    | { type: "SET_KEY"; payload: number }
-    | { type: "TOGGLE_CHECKBOX" };
+export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
+    const [isVisible, setIsVisible] = useState(false);
+    const toggleVisibility = () => setIsVisible(prev => !prev);
 
-const initialState: AppState = {
-    isVisible: false,
-    bgColor: "#fce38f",
-    opacity: "0",
-    isMobile: false,
-    size: "100%",
-    width: "100%",
-    key: 0,
-    isChecked: false,
-};
+    const [bgColor, setColor] = useState<string>('#fce38f');
+    const changeColor = (newColor: string) => setColor(newColor);
 
-const appReducer = (state: AppState, action: Action): AppState => {
-    switch (action.type) {
-        case "TOGGLE_VISIBILITY":
-            return { ...state, isVisible: !state.isVisible };
-        case "CHANGE_COLOR":
-            return { ...state, bgColor: action.payload };
-        case "CHANGE_OPACITY":
-            return { ...state, opacity: "1" };
-        case "SET_SIZE":
-            return { ...state, size: action.payload };
-        case "CHANGE_WIDTH":
-            return { ...state, width: action.payload };
-        case "SET_KEY":
-            return { ...state, key: action.payload };
-        case "TOGGLE_CHECKBOX":
-            return { ...state, isChecked: !state.isChecked };
-        default:
-            return state;
-    }
-};
+    const [opacity, setOpacity] = useState<string>('0');
+    const changeOpacity = () => setOpacity('1');
 
-export const AppProvider = ({ children }: AppProviderProps) => {
-    const [state, dispatch] = useReducer(appReducer, initialState);
+    const [width, setWidth] = useState<string>("100%");
+    const changeWidth = (newWidth: string) => setWidth(newWidth);
 
-    const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+    const [isChecked, setIsChecked] = useState<boolean>(false);
+    const handleCheckboxChange = () => setIsChecked(prev => !prev);
 
+    const [key, setKey] = useState<number>(0);
+
+    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+
+    const [size, setSize] = useState<string>('100%');
     useEffect(() => {
-        dispatch({ type: "CHANGE_OPACITY" });
-    }, []);
-
-    useEffect(() => {
-        dispatch({ type: "SET_SIZE", payload: isMobile ? "100%" : "50%" });
+        setSize(isMobile ? '100%' : '50%');
     }, [isMobile]);
 
-    const handleClick = useCallback(() => {
-        dispatch({ type: "TOGGLE_VISIBILITY" });
+    useEffect(() => {
+        changeOpacity();
     }, []);
 
-    const value: AppContextType = {
-        ...state,
-        toggleVisibility: () => dispatch({ type: "TOGGLE_VISIBILITY" }),
-        changeColor: (newColor) => dispatch({ type: "CHANGE_COLOR", payload: newColor }),
-        changeOpacity: () => dispatch({ type: "CHANGE_OPACITY" }),
-        setSize: (size) => dispatch({ type: "SET_SIZE", payload: size }),
-        changeWidth: (newWidth) => dispatch({ type: "CHANGE_WIDTH", payload: newWidth }),
-        setKey: (key) => dispatch({ type: "SET_KEY", payload: key }),
-        handleCheckboxChange: () => dispatch({ type: "TOGGLE_CHECKBOX" }),
-        handleClick,
-    };
+    const handleClick = useCallback(() => {
+        toggleVisibility();
+    }, []);
 
-    return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+    return (
+        <AppContext.Provider value={{
+            isVisible,
+            toggleVisibility,
+            bgColor,
+            changeColor,
+            opacity,
+            changeOpacity,
+            isMobile,
+            size,
+            setSize,
+            width,
+            changeWidth,
+            key,
+            setKey,
+            isChecked,
+            handleCheckboxChange,
+            handleClick
+        }}>
+            {children}
+        </AppContext.Provider>
+    );
 };

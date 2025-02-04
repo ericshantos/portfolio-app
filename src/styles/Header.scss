@@ -76,7 +76,7 @@ header {
             right: 3.5em;
 
             h1 {
-                font-size: 1.3em;
+                font-size: 1.4em;
             }
         }
     }
@@ -143,7 +143,7 @@ li {
 
 @media screen and (min-width:320px) and (max-width: 480px) {
     header {
-        left: 0;
+        left: 1.05em;
 
         & .CatalogContent {
             width: 90vw;

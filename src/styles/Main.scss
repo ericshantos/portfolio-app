@@ -1,7 +1,7 @@
 @use 'variables.scss' as vars; 
 
 // variables
-$common-size: 7.4em;
+$common-size: 7.8em;
 $font-size-icon: 3em;
 $size-icon: calc($font-size-icon * 1.5);
 
@@ -69,6 +69,7 @@ main {
         position: relative;
         display: flex;
         flex-direction: column;
+        transform: translateY(-12%);
         gap: 15px;
 
         p {
@@ -134,6 +135,7 @@ main {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: auto;
+        padding: 10px;
         place-items: center;
         column-gap: 7px;
     }
@@ -227,6 +229,7 @@ main {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        transform: translateY(-10%);
         width: 100%;
         margin-top: 50px;
         gap: 20px;
