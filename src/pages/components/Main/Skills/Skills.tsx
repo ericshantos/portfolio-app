@@ -29,11 +29,11 @@ const SkillConteiner = () => {
         { skill: 'sklearn', content: 'Machine Learning', mobile: true },
         { skill: 'tensorflow', content: 'Machine Learning', mobile: false },
         { skill: 'sass', content: 'Front-end', mobile: true },
-        { skill: 'markdown', content: 'Documentação de software', mobile: false },
+        { skill: 'markdown', content: 'Documentação de software', mobile: true },
         { skill: 'mysql', content: 'Banco de dados', mobile: true },
         { skill: 'aws', content: 'Computação em nuvem', mobile: true },
-        { skill: 'next', content: 'Back-end', mobile: false },
-        { skill: 'opencv', content: 'Visão computacional', mobile: false },
+        { skill: 'next', content: 'Back-end', mobile: true },
+        { skill: 'opencv', content: 'Visão computacional', mobile: true },
         { skill: 'pytorch', content: 'Machine learning', mobile: true },
         { skill:'arduino', content: 'IoT', mobile: false }
     ];

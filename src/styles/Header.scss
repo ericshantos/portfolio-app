@@ -143,10 +143,11 @@ li {
 
 @media screen and (min-width:320px) and (max-width: 480px) {
     header {
-        left: 1.05em;
+        left: 0;
 
         & .CatalogContent {
             width: 90vw;
+            height: 70vh;
             padding: 0 0  0 30px;
             margin-left: 5px;
     
