@@ -46,7 +46,7 @@ header {
         align-items: flex-start;
         background-color: white;
         border-radius: 0.6em;
-        padding: 0 0  0 40px;
+        padding: 0 0 0 40px;
         pointer-events: none;
         box-sizing: border-box;
         top: 0;
@@ -150,6 +150,8 @@ li {
             height: 70vh;
             padding: 0 0  0 30px;
             margin-left: 5px;
+            left: 10px;
+            padding: 0 0 0 30px;
     
             .Title {
                 top: 3em;
