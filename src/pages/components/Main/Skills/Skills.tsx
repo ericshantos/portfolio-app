@@ -1,7 +1,7 @@
-import { SkillItem, useApp } from '.';
+import { SkillItem, useApp, useFetchSkills } from '.';
 
 interface SkillItem {
-    skill: string;
+    name: string;
     content: string;
     mobile: boolean;
 }
@@ -10,41 +10,15 @@ const SkillConteiner = () => {
 
     const { isMobile } = useApp();
     
-    const skillItem : SkillItem[] = [
-        { skill: 'python', content: 'Linguagem de programação', mobile: true },
-        { skill: 'javascript', content: 'Linguagem de programação', mobile: true },
-        { skill: 'typescript', content: 'Linguagem de programação', mobile: true },
-        { skill: 'react', content: 'Front-end', mobile: true },
-        { skill: 'html', content: 'Front-end', mobile: false },
-        { skill: 'css', content: 'Front-end', mobile: false },
-        { skill: 'flask', content: 'Back-end', mobile: true },
-        { skill: 'express', content: 'Back-end', mobile: true },
-        { skill: 'nodejs', content: 'Ecossistema JS', mobile: true },
-        { skill: 'linux', content: 'Sistema Operacional', mobile: true },
-        { skill: 'postman', content: 'Teste de API', mobile: false },
-        { skill: 'docker', content: 'DevOps', mobile: false },
-        { skill: 'vscode', content: 'IDE', mobile: true },
-        { skill: 'git', content: 'Controle de versão', mobile: true },
-        { skill: 'github', content: 'Controle de versão', mobile: false },
-        { skill: 'sklearn', content: 'Machine Learning', mobile: true },
-        { skill: 'tensorflow', content: 'Machine Learning', mobile: false },
-        { skill: 'sass', content: 'Front-end', mobile: true },
-        { skill: 'markdown', content: 'Documentação de software', mobile: true },
-        { skill: 'mysql', content: 'Banco de dados', mobile: true },
-        { skill: 'aws', content: 'Computação em nuvem', mobile: true },
-        { skill: 'next', content: 'Back-end', mobile: true },
-        { skill: 'opencv', content: 'Visão computacional', mobile: true },
-        { skill: 'pytorch', content: 'Machine learning', mobile: true },
-        { skill:'arduino', content: 'IoT', mobile: false }
-    ];
+    const skillItem : SkillItem[] = useFetchSkills();
 
-    const validSkillItems = skillItem.filter(item => item.content && item.skill);
+    const validSkillItems = skillItem.filter(item => item.content && item.name);
 
     return (
         <section className='Skills MainItem' id='Skills'>
             <div className='SkillConteiner'>
                 {validSkillItems.map((item) => (
-                    isMobile && !item.mobile ? null : <SkillItem key={item.skill} item={item} />
+                    isMobile && !item.mobile ? null : <SkillItem key={item.name} item={item} />
                 ))}
             </div>
         </section>
