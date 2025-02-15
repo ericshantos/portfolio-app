@@ -1,15 +1,15 @@
 @use './variables.scss' as vars;
 
 // variables
-$icon-size: 4em;
+$icon-size: 4rem;
 $size-BtnColor: 20px;
 
 header {
     position: fixed;
     display: flex;
-    top: 2em;
-    left: 1em;
-    padding: 1.8em 1.2em;
+    top: 2rem;
+    left: 1rem;
+    padding: 1.8em 1.2rem;
     transition: opacity 1s ease-in-out 1s;
     z-index: 900;
 
@@ -63,20 +63,20 @@ header {
             list-style-type: none;
             display: flex;
             flex-direction: column;
-            gap: 1.7em;
+            gap: 1.7rem;
             opacity: 0;
-            margin-top: 2em;
+            margin-top: 2rem;
             transform: translateX(50%);
             transition: transform .5s ease-in, opacity 1s ease;
         }
 
         .Title {
             position: absolute;
-            top: 2.8em;
-            right: 3.5em;
+            top: 2.8rem;
+            right: 3.5rem;
 
             h1 {
-                font-size: 1.3em;
+                font-size: 1.3rem;
             }
         }
     }
@@ -122,7 +122,7 @@ li {
         text-decoration: none;
 
         & h2 {
-            font-size: 1.2em;
+            font-size: 1.2rem;
             font-family: "Outfit", sans-serif;
             font-optical-sizing: auto;
             font-weight: 450;
@@ -132,11 +132,11 @@ li {
 
         & p {
             color: gray;
-            font-size: .9em;
+            font-size: .9rem;
             font-family: "Poppins", sans-serif;
             font-weight: 350;
             font-style: normal;
-            margin-right: 1.8em;
+            margin-right: 1.8rem;
         }
     }
 }
@@ -154,11 +154,11 @@ li {
             padding: 0 0 0 30px;
     
             .Title {
-                top: 3em;
-                right: 3em;
+                top: 3rem;
+                right: 3rem;
     
                 h1 {
-                    font-size: 1.32em;
+                    font-size: 1.32rem;
                 }
             }
         }

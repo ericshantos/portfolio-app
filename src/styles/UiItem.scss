@@ -10,7 +10,7 @@
       justify-content: center;
       align-items: center;
       padding: 15px 20px;
-      font-size: 1.1em;
+      font-size: 1.1rem;
       font-weight: 600;
       color: var(--bgColor);
       border: 2px solid var(--bgColor);
@@ -32,8 +32,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  right: 2em;
-  top: 4.2em;
+  right: 2rem;
+  top: 4.2rem;
   cursor: pointer;
   border: none;
   background: transparent;
@@ -48,8 +48,8 @@
 
 @media screen and (min-width:320px) and (max-width: 480px) {
   .CloseBtn {
-    right: 2em;
-    top: 4em;
+    right: 2rem;
+    top: 4rem;
   }
 
   .CommonBtn {

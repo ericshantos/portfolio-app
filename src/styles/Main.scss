@@ -1,8 +1,8 @@
 @use 'variables.scss' as vars; 
 
 // variables
-$common-size: 7.4em;
-$font-size-icon: 3em;
+$common-size: 7.4rem;
+$font-size-icon: 3rem;
 $size-icon: calc($font-size-icon * 1.5);
 
 main {
@@ -211,7 +211,7 @@ main {
         }
 
         & h2 {
-            font-size: 1.2em;
+            font-size: 1.2rem;
             margin-top: 20px;
             margin-bottom: 5px;
             color: vars.$common-color;
@@ -289,7 +289,7 @@ main {
 
 @media screen and (min-width:320px) and (max-width: 480px) {
 
-    $common-size: 7.3em;
+    $common-size: 7.3rem;
 
     .AboutMe {
         padding: 50px 40px 0 30px;
